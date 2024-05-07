@@ -32,24 +32,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Image Slider
 $(document).ready(function(){
-    $(`.next`).on(`click`, function() {
-        let currentImg = $(`.active`);
+    $('.next').on('click', function() {
+        let currentImg = $('.active');
         let nextImg = currentImg.next();
         if (nextImg.length) {
-            currentImg.removeClass(`active`).css(`z-index`, -10);
-            nextImg.addClass(`active`).css(`z-index`, 10);
+            currentImg.removeClass('active').css('z-index', -10);
+            nextImg.addClass('active').css('z-index', 10);
+        } else {
+            // Return to the first image
+            currentImg.removeClass('active').css('z-index', -10);
+            $('.slider-inner img:first').addClass('active').css('z-index', 10);
         }
     });
 
-    $(`.prev`).on(`click`, function() {
-        let currentImg = $(`.active`);
+    $('.prev').on('click', function() {
+        let currentImg = $('.active');
         let prevImg = currentImg.prev();
         if (prevImg.length) {
-            currentImg.removeClass(`active`).css(`z-index`, -10);
-            prevImg.addClass(`active`).css(`z-index`, 10);
+            currentImg.removeClass('active').css('z-index', -10);
+            prevImg.addClass('active').css('z-index', 10);
+        } else {
+            // Go to the last image
+            currentImg.removeClass('active').css('z-index', -10);
+            $('.slider-inner img:last').addClass('active').css('z-index', 10);
         }
     });
 });
+
 
 // SVG Color Manipulation
 const changeColorBtn = document.getElementById('changeColorBtn');

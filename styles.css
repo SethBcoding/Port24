@@ -160,6 +160,17 @@ ul li:hover a {
   color: white; 
 }
 
+/* Remove the outline when an image is clicked */
+.slider-inner img:focus {
+  outline: none;
+}
+
+/* Disable the outline for all images */
+img {
+  outline: none;
+}
+
+
 /* Footer Styles */
 footer {
   background-color: #333;
