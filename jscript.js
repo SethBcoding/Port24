@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const darkModeSwitch = document.getElementById("dark-mode-switch");
     const headerImage = document.getElementById('headerImage');
     const logo = document.getElementById("logo");
-    const slider = document.querySelector(".slider");
+    const navslider = document.querySelector(".navslider");
     const isDarkMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(isDarkMode);
     darkModeSwitch.addEventListener("change", function() {
@@ -20,15 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
             body.classList.add("dark-mode");
             headerImage.src = "images/webparalax_dark.png";
             logo.src = "images/logo1.png";
-            slider.style.backgroundColor = "#ffffff";
+            navslider.style.backgroundColor = "#ffffff";
         } else {
             body.classList.remove("dark-mode");
             headerImage.src = "images/webparalax_light.png";
             logo.src = "images/logo.png";
-            slider.style.backgroundColor = "#303030";
+            navslider.style.backgroundColor = "#303030";
         }
     }
 });
+
+
 
 // Image Slider
 $(document).ready(function(){
@@ -113,7 +115,14 @@ function getRandomColor() {
 boxPicker.on('color:change', function(color) {
     updateSvgColor(color);
 });
-//
+
+// JavaScript to toggle navigation on click of the hamburger icon
+const menuIcon = document.querySelector('.menu-icon');
+const navUl = document.querySelector('nav ul');
+
+menuIcon.addEventListener('click', () => {
+    navUl.classList.toggle('show');
+});
 
   
 
